@@ -43,14 +43,7 @@ table {
 	border-spacing: 0;
 }
 
-/* header */
-#header {
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid gray;
-}
-
+/* ------------------------- */
 #header__area {
   width: 1024px;
   height: 100%;
@@ -63,15 +56,8 @@ table {
   height: 36px;
 }
 
-/* main */
-#main {
-  /* min-height: 100vh; */
-  height: 100vh;
-  width: 1024px;
-  margin: auto;
-}
-
-#main > h1 {
+/* MainPage */
+#product__title {
   padding-top: 16px;
   font-size: 24px;
   font-weight: bold;
@@ -136,13 +122,6 @@ table {
 .seller__avatar{
   width: 24px;
 }
-
-/* footer */
-#footer {
-  height: 200px;
-  background-color:rgb(230, 230, 230);
-}
-
 
 /* Product__link */
 .Product__link{

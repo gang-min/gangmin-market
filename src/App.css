@@ -1,3 +1,25 @@
 html, body, #root, #root > div{
   height: 100%;
 }
+
+/* header */
+#header {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+}
+
+/* main */
+#main {
+  /* min-height: 100vh; */
+  height: 100vh;
+  width: 1024px;
+  margin: auto;
+}
+
+/* footer */
+#footer {
+  height: 200px;
+  background-color:rgb(230, 230, 230);
+}

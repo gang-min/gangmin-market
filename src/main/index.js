@@ -18,25 +18,18 @@ function MainPage(){
   }, []);
   return (
     <div>
-          <header id="header">
-      <div id="header__area">
-        <img src="/images/icons/logo.png" alt="마켓 이미지" id="header__logo" />
-      </div>
-    </header>
-
-    <main id="main">
       <div id="banner">
         <img src="/images/banners/banner1.png" alt="배너 이미지1" id="banner__img"/>
       </div>
 
-      <h1>판매되는 상품들</h1>
+      <h1 id="product__title">판매되는 상품들</h1>
       
       <ul id="product__list">
             {
               products.map(function(product, index){
                 return (
                   <li className = "product__card">
-                    <Link className = "Product__link" to = {`/products/${index}`}>
+                    <Link className = "Product__link" to = {`/products/${product.id}`}>
                       <div className = "product__img">
                         <img src = {product.imageUrl} alt = "키보드"/>
                       </div>
@@ -54,9 +47,6 @@ function MainPage(){
               })
             } 
       </ul>
-    </main>
-
-    <footer id="footer"></footer>
     </div>
   )
 };
