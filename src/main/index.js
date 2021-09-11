@@ -22,7 +22,7 @@ function MainPage(){
         <img src="/images/banners/banner1.png" alt="배너 이미지1" id="banner__img"/>
       </div>
 
-      <h1 id="product__title">판매되는 상품들</h1>
+      <h1>판매되는 상품들</h1>
       
       <ul id="product__list">
             {
