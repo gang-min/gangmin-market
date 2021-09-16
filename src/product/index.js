@@ -11,21 +11,20 @@ function ProductPage(){
 
   const [product, setProduct] = useState(null);
   useEffect(function(){
-    const result = axios(`https://316eeb27-2347-438e-aaf5-0e104e18aea5.mock.pstmn.io/products/${id}`)
+    const result = axios(`http://localhost:8080/products/${id}`)
     result.then(function(response){
-      setProduct(response.data);
+      setProduct(response.data.product);
     }).catch(function(error){
       console.error(error)
     })
-  }, [])
-
+  }, []);
   if(product === null){
     return <h1>상품 정보를 받고 있습니다...</h1>
   };
   return (
     <div>
       <div className="productImg">
-        <img src ={`${product.imageUrl}`}/>
+        <img src ={`${product.imageUrl}`} alt="뭐지"/>
       </div>
       <div className="profile">
         <img className="profile__avatar" src="/images/icons/avatar.png"/>

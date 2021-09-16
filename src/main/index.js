@@ -2,13 +2,16 @@ import  "./index.css"
 import axios from 'axios';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
+dayjs.extend(relativeTime);
 
 function MainPage(){
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(function(){
-    const promiseObj = axios.get('https://316eeb27-2347-438e-aaf5-0e104e18aea5.mock.pstmn.io/products');
+    const promiseObj = axios.get('http://localhost:8080/products');
     promiseObj.then(function(response){
     const products = response.data.products;
     setProducts(products);
@@ -35,10 +38,13 @@ function MainPage(){
                       </div>
                       <div className = "product__contents">
                         <span className = "product__name">{product.name}</span>
-                        <span className = "product__price">{product.price}</span>
-                        <div className = "product__seller">
-                          <img className = "seller__avatar" src = "images/icons/avatar.png" alt ="아바타이미지"/>
-                          <span className = "seller__name">{product.seller}</span>
+                        <span className = "product__price">{product.price}원</span>
+                        <div className="product-footer">
+                          <div className = "product__seller">
+                            <img className = "seller__avatar" src = "images/icons/avatar.png" alt ="아바타이미지"/>
+                            <span className = "seller__name">{product.seller}</span>
+                          </div>
+                          <span className="product__date">{dayjs(product.createdAt).fromNow()}</span>
                         </div>
                       </div>
                     </Link>

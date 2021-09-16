@@ -54,14 +54,25 @@
   margin-top: 4px;
 }
 
+.product-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
 .product__seller{
   display: flex;
   align-items: center;
-  margin-top: 12px;
 }
 
 .seller__avatar{
   width: 24px;
+}
+
+.product__date{
+  font-size: 12px;
+  color:rgb(136, 136, 136);
 }
 
 /* Product__link */
