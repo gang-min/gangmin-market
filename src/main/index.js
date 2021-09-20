@@ -53,6 +53,9 @@ function MainPage(){
               products.map(function(product, index){
                 return (
                   <li className = "product__card">
+                    {
+                      product.soldout === 1 && <div className="product--blur"><div className="blur__comment">Sold Out</div></div>
+                    }
                     <Link className = "Product__link" to = {`/products/${product.id}`}>
                       <div className = "product__img">
                         <img id='uploading-image' src = {`${API_URL}/${product.imageUrl}`} alt = "상품이미지"/>
