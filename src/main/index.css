@@ -1,6 +1,6 @@
 /* MainPage */
 #main h1 {
-  padding-top: 16px;
+  margin-top: 16px;
   font-size: 24px;
   font-weight: bold;
 }
@@ -38,6 +38,7 @@
   width: 100%;
   height: 210px;
 }
+
 .product__contents {
   display: flex;
   flex-direction: column;
@@ -79,4 +80,8 @@
 .Product__link{
   color: inherit;
   text-decoration: none;
+}
+
+#uploading-image{
+  object-fit: contain;
 }

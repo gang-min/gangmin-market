@@ -73,8 +73,8 @@ html, body, #root, #root > div{
 
 /* main */
 #main {
-  /* min-height: 100vh; */
-  height: 100vh;
+  min-height: 100vh;
+  /* height: 100vh; */
   width: 1024px;
   margin: auto;
 }

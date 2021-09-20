@@ -2,6 +2,8 @@ import './index.css';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import {API_URL} from '../config/constants.js';
+import dayjs from 'dayjs';
 
 
 function ProductPage(){
@@ -11,7 +13,7 @@ function ProductPage(){
 
   const [product, setProduct] = useState(null);
   useEffect(function(){
-    const result = axios(`http://localhost:8080/products/${id}`)
+    const result = axios(`${API_URL}/products/${id}`)
     result.then(function(response){
       setProduct(response.data.product);
     }).catch(function(error){
@@ -24,7 +26,7 @@ function ProductPage(){
   return (
     <div>
       <div className="productImg">
-        <img src ={`${product.imageUrl}`} alt="뭐지"/>
+        <img src ={`${API_URL}/${product.imageUrl}`} alt="상품이미지"/>
       </div>
       <div className="profile">
         <img className="profile__avatar" src="/images/icons/avatar.png"/>
@@ -33,8 +35,8 @@ function ProductPage(){
       <div className="contents">
         <span className="contents__name">{product.name}</span>
         <div className="contents__price">{product.price}원</div>
-        <div className="contents__createdAt">2021년 9월 7일</div>
-        <div className="contents__description">{product.description}</div>
+        <div className="contents__createdAt">{dayjs(product.createdAt).format('YYYY년 MM월 DD일')}</div>
+        <pre className="contents__description">{product.description}</pre>
       </div>
     </div>
   )
