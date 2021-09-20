@@ -5,26 +5,46 @@ import {Link} from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {API_URL} from '../config/constants.js';
+import {Carousel} from 'antd';
 
 dayjs.extend(relativeTime);
 
 function MainPage(){
   const [products, setProducts] = React.useState([]);
+  const [banners, setBanners] = React.useState([]);
 
   React.useEffect(function(){
-    const promiseObj = axios.get(`${API_URL}/products`);
-    promiseObj.then(function(response){
+    const productObj = axios.get(`${API_URL}/products`);
+    productObj.then(function(response){
     const products = response.data.products;
     setProducts(products);
   }).catch(function(error){
     console.error(error);
   });
+
+    const bannersObj = axios.get(`${API_URL}/banners`);
+    bannersObj.then((response) => {
+      const banners = response.data.banners;
+      setBanners(banners);
+    }).catch((error) => {
+      console.error(error);
+    })
   }, []);
   return (
     <div>
-      <div id="banner">
-        <img src="/images/banners/banner1.png" alt="배너 이미지1" id="banner__img"/>
-      </div>
+      <Carousel autoplay autoplaySpeed={3000}>
+        {
+          banners.map((banner, index) => {
+            return (
+              <Link to ={banner.href}>
+                <div id="banner">
+                    <img src={`${API_URL}/${banner.imageUrl}`} alt="배너 이미지" id="banner__img"/>
+                </div>
+              </Link>
+            )
+          })
+        }
+      </Carousel>
 
       <h1>판매되는 상품들</h1>
       
